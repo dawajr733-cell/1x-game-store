@@ -13,8 +13,16 @@
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         }
 
+        /* 
+           Background Updated to Joker Wallpaper!
+           Added a dark overlay so your text is still readable and looks premium.
+        */
         body {
             background-color: #0d0d12;
+            background-image: linear-gradient(rgba(13, 13, 18, 0.85), rgba(13, 13, 18, 0.95)), url('https://wallpapercave.com/wp/wp4902183.jpg');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
             color: #ffffff;
             line-height: 1.6;
         }
@@ -25,11 +33,12 @@
             justify-content: space-between;
             align-items: center;
             padding: 20px 5%;
-            background-color: rgba(13, 13, 18, 0.95);
+            background-color: rgba(13, 13, 18, 0.85); /* Slightly transparent */
             border-bottom: 1px solid #2a2a35;
             position: sticky;
             top: 0;
             z-index: 100;
+            backdrop-filter: blur(10px); /* Blurs the background behind nav */
         }
 
         .logo {
@@ -59,21 +68,24 @@
         /* Hero Section */
         .hero {
             text-align: center;
-            padding: 80px 5%;
-            background: linear-gradient(180deg, #13131a 0%, #0d0d12 100%);
+            padding: 100px 5%;
+            /* Removed solid gradient to let Joker wallpaper show through */
+            background: transparent; 
         }
 
         .hero h1 {
             font-size: 3rem;
             margin-bottom: 20px;
             font-weight: 800;
+            text-shadow: 0 4px 10px rgba(0,0,0,0.5); /* Text shadow for clarity */
         }
 
         .hero p {
             font-size: 1.2rem;
-            color: #b3b3b3;
+            color: #d1d1d1;
             max-width: 600px;
             margin: 0 auto 40px auto;
+            text-shadow: 0 2px 5px rgba(0,0,0,0.5);
         }
 
         /* Game Store Section */
@@ -85,6 +97,7 @@
         .store-section h2 {
             font-size: 2.5rem;
             margin-bottom: 50px;
+            text-shadow: 0 2px 5px rgba(0,0,0,0.5);
         }
 
         .game-grid {
@@ -95,12 +108,13 @@
         }
 
         .game-card {
-            background-color: #1a1a24;
+            background-color: rgba(26, 26, 36, 0.7); /* Transparent card background */
             border: 1px solid #2a2a35;
             border-radius: 16px;
             width: 400px; 
             padding: 30px 20px;
-            transition: transform 0.3s ease;
+            transition: transform 0.3s ease, border-color 0.3s ease;
+            backdrop-filter: blur(8px); /* Nice glass effect */
         }
 
         .game-card:hover {
@@ -127,7 +141,7 @@
             justify-content: space-between;
             align-items: center;
             padding: 12px 15px;
-            border-bottom: 1px solid #2a2a35;
+            border-bottom: 1px solid rgba(42, 42, 53, 0.5);
             transition: background 0.2s ease;
         }
 
@@ -136,7 +150,7 @@
         }
 
         .price-item:hover {
-            background-color: #232330;
+            background-color: rgba(35, 35, 48, 0.8);
             border-radius: 8px;
         }
 
@@ -171,10 +185,11 @@
 
         /* Manual Payment System & Upload Form Section */
         .payment-section {
-            background-color: #111118;
+            background-color: rgba(17, 17, 24, 0.85); /* Transparent dark background */
             padding: 80px 5%;
             text-align: center;
             border-top: 1px solid #2a2a35;
+            backdrop-filter: blur(10px);
         }
 
         .payment-section h3 {
@@ -187,7 +202,7 @@
             max-width: 600px;
             margin: 0 auto;
             text-align: left;
-            background-color: #1a1a24;
+            background-color: rgba(26, 26, 36, 0.7);
             padding: 30px;
             border-radius: 12px;
             border: 1px solid #2a2a35;
@@ -220,7 +235,7 @@
 
         /* Upload Form Styles */
         .upload-form {
-            background-color: #111118;
+            background-color: rgba(17, 17, 24, 0.7);
             padding: 20px;
             border-radius: 8px;
             border: 1px solid #2a2a35;
@@ -240,7 +255,7 @@
             margin-bottom: 20px;
             border-radius: 6px;
             border: 1px solid #2a2a35;
-            background-color: #1a1a24;
+            background-color: rgba(26, 26, 36, 0.8);
             color: #fff;
             font-size: 1rem;
         }
@@ -299,7 +314,7 @@
         footer {
             text-align: center;
             padding: 30px;
-            background-color: #0a0a0e;
+            background-color: rgba(10, 10, 14, 0.9);
             color: #666;
         }
     </style>
@@ -414,7 +429,7 @@
             
             <p class="step"><span>2.</span> Fill out your details and upload the payment screenshot below:</p>
             
-            <!-- Upload Form with the exact Formspree Link -->
+            <!-- Upload Form with your Formspree Link -->
             <form class="upload-form" action="https://formspree.io/f/mqpakbpd" method="POST" enctype="multipart/form-data">
                 
                 <label class="form-label">Game Name & Player ID:</label>
