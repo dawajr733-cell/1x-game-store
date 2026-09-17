@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>1x Game Store | Premium & Fast Game Top-Ups</title>
+    <style>
+        /* Modern Premium CSS Reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: #0d0d12;
+            color: #ffffff;
+            line-height: 1.6;
+        }
+
+        /* Navigation */
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 5%;
+            background-color: rgba(13, 13, 18, 0.95);
+            border-bottom: 1px solid #2a2a35;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .logo {
+            font-size: 28px;
+            font-weight: 800;
+            color: #ffffff;
+            text-decoration: none;
+            letter-spacing: 1px;
+        }
+
+        .logo span {
+            color: #f5c518; /* Premium Gold */
+        }
+
+        .nav-links a {
+            color: #b3b3b3;
+            text-decoration: none;
+            margin-left: 30px;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: #f5c518;
+        }
+
+        /* Hero Section */
+        .hero {
+            text-align: center;
+            padding: 80px 5%;
+            background: linear-gradient(180deg, #13131a 0%, #0d0d12 100%);
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 20px;
+            font-weight: 800;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            color: #b3b3b3;
+            max-width: 600px;
+            margin: 0 auto 40px auto;
+        }
+
+        /* Game Store Section */
+        .store-section {
+            padding: 60px 5%;
+            text-align: center;
+        }
+
+        .store-section h2 {
+            font-size: 2.5rem;
+            margin-bottom: 50px;
+        }
+
+        .game-grid {
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            flex-wrap: wrap;
+        }
+
+        .game-card {
+            background-color: #1a1a24;
+            border: 1px solid #2a2a35;
+            border-radius: 16px;
+            width: 400px; 
+            padding: 30px 20px;
+            transition: transform 0.3s ease;
+        }
+
+        .game-card:hover {
+            border-color: #f5c518;
+            transform: translateY(-5px);
+        }
+
+        .game-title {
+            font-size: 1.8rem;
+            margin-bottom: 10px;
+            font-weight: 700;
+            color: #f5c518;
+        }
+
+        /* Pricing Table inside Cards */
+        .price-list {
+            list-style: none;
+            margin-top: 20px;
+            text-align: left;
+        }
+
+        .price-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 12px 15px;
+            border-bottom: 1px solid #2a2a35;
+            transition: background 0.2s ease;
+        }
+
+        .price-item:last-child {
+            border-bottom: none;
+        }
+
+        .price-item:hover {
+            background-color: #232330;
+            border-radius: 8px;
+        }
+
+        .amount {
+            font-weight: 600;
+            font-size: 1.1rem;
+        }
+
+        .price {
+            color: #f5c518;
+            font-weight: 700;
+            font-size: 1.1rem;
+        }
+
+        .btn-buy-small {
+            background-color: transparent;
+            color: #ffffff;
+            border: 1px solid #4d4d60;
+            padding: 6px 15px;
+            border-radius: 6px;
+            font-size: 0.9rem;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            text-decoration: none;
+        }
+
+        .btn-buy-small:hover {
+            background-color: #f5c518;
+            color: #0d0d12;
+            border-color: #f5c518;
+        }
+
+        /* NEW Manual Payment System Section */
+        .payment-section {
+            background-color: #111118;
+            padding: 80px 5%;
+            text-align: center;
+            border-top: 1px solid #2a2a35;
+        }
+
+        .payment-section h3 {
+            font-size: 2rem;
+            margin-bottom: 15px;
+            color: #f5c518;
+        }
+
+        .instruction-steps {
+            max-width: 700px;
+            margin: 0 auto 40px auto;
+            text-align: left;
+            background-color: #1a1a24;
+            padding: 30px;
+            border-radius: 12px;
+            border: 1px solid #2a2a35;
+        }
+
+        .instruction-steps h4 {
+            font-size: 1.3rem;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        .step {
+            margin-bottom: 15px;
+            font-size: 1.1rem;
+        }
+
+        .step span {
+            color: #f5c518;
+            font-weight: bold;
+            font-size: 1.2rem;
+        }
+
+        .account-number {
+            display: inline-block;
+            background-color: #00B4D8;
+            color: #fff;
+            padding: 5px 15px;
+            border-radius: 6px;
+            font-weight: bold;
+            letter-spacing: 1px;
+            margin: 10px 0;
+            font-size: 1.3rem;
+        }
+
+        .contact-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-top: 30px;
+        }
+
+        .btn-contact {
+            padding: 12px 25px;
+            border-radius: 8px;
+            font-weight: bold;
+            text-decoration: none;
+            color: #fff;
+            transition: transform 0.2s ease;
+        }
+
+        .btn-contact:hover {
+            transform: translateY(-3px);
+        }
+
+        .btn-telegram { background-color: #0088cc; }
+        .btn-whatsapp { background-color: #25D366; }
+
+        /* Other Payment Icons */
+        .other-payments {
+            margin-top: 40px;
+            color: #8c8c8c;
+        }
+        
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 30px;
+            background-color: #0a0a0e;
+            color: #666;
+        }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <a href="#" class="logo">1x<span>GameStore</span></a>
+        <div class="nav-links">
+            <a href="#home">Home</a>
+            <a href="#store">Store</a>
+            <a href="#payment">How to Pay</a>
+        </div>
+    </nav>
+
+    <section class="hero" id="home">
+        <h1>Level Up Instantly.</h1>
+        <p>Premium top-ups for eFootball and PUBG Mobile. Fast, secure, and fully verified.</p>
+    </section>
+
+    <!-- Products Section -->
+    <section class="store-section" id="store">
+        <h2>Select Your Package</h2>
+        <div class="game-grid">
+            
+            <!-- eFootball Card -->
+            <div class="game-card">
+                <h3 class="game-title">eFootball™ Coins</h3>
+                <ul class="price-list">
+                    <li class="price-item">
+                        <span class="amount">100 Coins</span>
+                        <span class="price">$1.29</span>
+                        <a href="#payment" class="btn-buy-small">Buy</a>
+                    </li>
+                    <li class="price-item">
+                        <span class="amount">1,040 Coins</span>
+                        <span class="price">$10.29</span>
+                        <a href="#payment" class="btn-buy-small">Buy</a>
+                    </li>
+                    <li class="price-item">
+                        <span class="amount">2,130 Coins</span>
+                        <span class="price">$20.29</span>
+                        <a href="#payment" class="btn-buy-small">Buy</a>
+                    </li>
+                    <li class="price-item">
+                        <span class="amount">3,300 Coins</span>
+                        <span class="price">$30.29</span>
+                        <a href="#payment" class="btn-buy-small">Buy</a>
+                    </li>
+                    <li class="price-item">
+                        <span class="amount">5,800 Coins</span>
+                        <span class="price">$50.29</span>
+                        <a href="#payment" class="btn-buy-small">Buy</a>
+                    </li>
+                    <li class="price-item">
+                        <span class="amount">12,000 Coins</span>
+                        <span class="price">$100.29</span>
+                        <a href="#payment" class="btn-buy-small">Buy</a>
+                    </li>
+                </ul>
+            </div>
+
+            <!-- PUBG Mobile Card -->
+            <div class="game-card">
+                <h3 class="game-title">PUBG Mobile UC</h3>
+                <ul class="price-list">
+                    <li class="price-item">
+                        <span class="amount">60 UC</span>
+                        <span class="price">$1.29</span>
+                        <a href="#payment" class="btn-buy-small">Buy</a>
+                    </li>
+                    <li class="price-item">
+                        <span class="amount">325 UC</span>
+                        <span class="price">$5.29</span>
+                        <a href="#payment" class="btn-buy-small">Buy</a>
+                    </li>
+                    <li class="price-item">
+                        <span class="amount">660 UC</span>
+                        <span class="price">$10.29</span>
+                        <a href="#payment" class="btn-buy-small">Buy</a>
+                    </li>
+                    <li class="price-item">
+                        <span class="amount">1,800 UC</span>
+                        <span class="price">$25.29</span>
+                        <a href="#payment" class="btn-buy-small">Buy</a>
+                    </li>
+                    <li class="price-item">
+                        <span class="amount">3,850 UC</span>
+                        <span class="price">$50.29</span>
+                        <a href="#payment" class="btn-buy-small">Buy</a>
+                    </li>
+                    <li class="price-item">
+                        <span class="amount">8,100 UC</span>
+                        <span class="price">$100.29</span>
+                        <a href="#payment" class="btn-buy-small">Buy</a>
+                    </li>
+                </ul>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- NEW Manual Payment System Section -->
+    <section class="payment-section" id="payment">
+        <h3>How to Complete Your Purchase</h3>
+        
+        <div class="instruction-steps">
+            <h4>Follow these simple steps for fast delivery:</h4>
+            
+            <p class="step"><span>1.</span> Send the exact payment for your chosen package to our official Telebirr account:</p>
+            <div style="text-align: center;">
+                <div class="account-number">📱 Telebirr: 0960022306</div>
+            </div>
+            
+            <p class="step" style="margin-top: 15px;"><span>2.</span> Take a clear <strong>Screenshot</strong> of the successful transaction receipt.</p>
+            
+            <p class="step"><span>3.</span> Send the screenshot along with your <strong>Game Name & Player ID</strong> to our support team.</p>
+            
+            <div class="contact-buttons">
+                <!-- Replace # with your actual Telegram or WhatsApp links -->
+                <a href="#" class="btn-contact btn-telegram">✈️ Send via Telegram</a>
+                <a href="#" class="btn-contact btn-whatsapp">💬 Send via WhatsApp</a>
+            </div>
+        </div>
+
+        <div class="other-payments">
+            <p>Also accepting: CBE | Binance Pay | Bybit</p>
+            <p style="font-size: 0.9rem;">(Contact support for details on other payment methods)</p>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2026 1x Game Store. All rights reserved.</p>
+    </footer>
+
+</body>
+</html>
