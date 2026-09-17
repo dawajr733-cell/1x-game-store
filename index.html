@@ -13,13 +13,9 @@
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         }
 
-        /* 
-           Background Updated to a NEW working Joker Wallpaper!
-           Using a highly reliable image link so it shows up perfectly.
-        */
+        /* Joker Background */
         body {
             background-color: #0d0d12;
-            /* New working Joker image link */
             background-image: linear-gradient(rgba(13, 13, 18, 0.85), rgba(13, 13, 18, 0.95)), url('https://i.pinimg.com/originals/10/a5/cb/10a5cb93809228d48a04f2f45cc06222.jpg');
             background-size: cover;
             background-position: center;
@@ -392,8 +388,10 @@
             
             <p class="step"><span>2.</span> Fill out your details and upload the payment screenshot below:</p>
             
-            <!-- Upload Form with your Formspree Link -->
-            <form class="upload-form" action="https://formspree.io/f/mqpakbpd" method="POST" enctype="multipart/form-data">
+            <!-- Free Upload Form using FormSubmit -->
+            <form class="upload-form" action="https://formsubmit.co/dawajr733@gmail.com" method="POST" enctype="multipart/form-data">
+                
+                <input type="hidden" name="_captcha" value="false">
                 
                 <label class="form-label">Game Name & Player ID:</label>
                 <input type="text" name="Player_ID" class="form-input" placeholder="Example: eFootball - ID 123456789" required>
