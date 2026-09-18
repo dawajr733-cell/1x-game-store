@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Checkout | 1x Game Store</title>
+    <title>1x Game Store | Premium & Fast Game Top-Ups</title>
     <style>
         * {
             margin: 0;
@@ -12,6 +12,7 @@
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         }
 
+        /* Joker Background */
         body {
             background-color: #0d0d12;
             background-image: linear-gradient(rgba(13, 13, 18, 0.85), rgba(13, 13, 18, 0.95)), url('https://i.pinimg.com/originals/10/a5/cb/10a5cb93809228d48a04f2f45cc06222.jpg');
@@ -22,6 +23,7 @@
             line-height: 1.6;
         }
 
+        /* Navigation */
         nav {
             display: flex;
             justify-content: space-between;
@@ -59,133 +61,115 @@
             color: #f5c518;
         }
 
-        .payment-section {
-            padding: 60px 5%;
+        /* Hero Section */
+        .hero {
             text-align: center;
+            padding: 80px 5%;
+            background: transparent; 
         }
 
-        .payment-section h3 {
-            font-size: 2.2rem;
+        .hero h1 {
+            font-size: 3rem;
             margin-bottom: 20px;
-            color: #f5c518;
+            font-weight: 800;
+            text-shadow: 0 4px 10px rgba(0,0,0,0.5); 
         }
 
-        .instruction-steps {
-            max-width: 650px;
-            margin: 0 auto;
-            text-align: left;
-            background-color: rgba(25, 25, 35, 0.85);
-            padding: 35px;
-            border-radius: 14px;
-            border: 1px solid #3a3a4f;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.6);
-        }
-
-        .step {
-            margin-bottom: 15px;
-            font-size: 1.1rem;
-        }
-
-        .step span {
-            color: #f5c518;
-            font-weight: bold;
+        .hero p {
             font-size: 1.2rem;
-        }
-
-        .account-number {
-            display: inline-block;
-            background: linear-gradient(135deg, #00B4D8, #0077B6);
-            color: #fff;
-            padding: 12px 25px;
-            border-radius: 8px;
-            font-weight: bold;
-            letter-spacing: 1px;
-            margin: 10px 0 25px 0;
-            font-size: 1.5rem;
-            text-align: center;
-            width: 100%;
-            box-shadow: 0 4px 15px rgba(0, 180, 216, 0.4);
-        }
-
-        .upload-form {
-            background-color: rgba(15, 15, 22, 0.8);
-            padding: 25px;
-            border-radius: 10px;
-            border: 1px solid #3a3a4f;
-            margin-top: 20px;
-        }
-
-        .form-label {
-            display: block;
-            margin-bottom: 8px;
             color: #d1d1d1;
-            font-size: 0.95rem;
-            font-weight: 600;
+            max-width: 600px;
+            margin: 0 auto 40px auto;
+            text-shadow: 0 2px 5px rgba(0,0,0,0.5);
         }
 
-        .form-input, .form-file {
-            width: 100%;
-            padding: 14px;
-            margin-bottom: 20px;
-            border-radius: 8px;
-            border: 1px solid #3a3a4f;
-            background-color: rgba(25, 25, 35, 0.9);
-            color: #fff;
-            font-size: 1rem;
-        }
-
-        .form-input:focus, .form-file:focus {
-            outline: none;
-            border-color: #f5c518;
-        }
-
-        .btn-submit {
-            background: linear-gradient(135deg, #f5c518, #e5b510);
-            color: #0d0d12;
-            padding: 15px;
-            border: none;
-            border-radius: 8px;
-            font-weight: bold;
-            font-size: 1.1rem;
-            width: 100%;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            box-shadow: 0 4px 15px rgba(245, 197, 24, 0.3);
-        }
-
-        .btn-submit:hover {
-            transform: translateY(-2px);
-            opacity: 0.95;
-        }
-
-        .support-contact {
-            margin-top: 30px;
+        /* Game Store Section */
+        .store-section {
+            padding: 40px 5%;
             text-align: center;
-            border-top: 1px solid #3a3a4f;
-            padding-top: 20px;
         }
 
-        .support-contact p {
-            color: #b3b3b3;
-            margin-bottom: 10px;
+        .store-section h2 {
+            font-size: 2.5rem;
+            margin-bottom: 40px;
+            text-shadow: 0 2px 5px rgba(0,0,0,0.5);
         }
 
-        .btn-telegram { 
-            display: inline-block;
-            background-color: #0088cc; 
-            padding: 10px 22px;
-            border-radius: 8px;
-            color: #fff;
-            text-decoration: none;
+        .game-grid {
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            flex-wrap: wrap;
+        }
+
+        .game-card {
+            background-color: rgba(20, 20, 28, 0.85); 
+            border: 1px solid #3a3a4f;
+            border-radius: 16px;
+            width: 450px; 
+            padding: 30px 20px;
+            backdrop-filter: blur(10px); 
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+        }
+
+        .game-title {
+            font-size: 1.8rem;
+            margin-bottom: 15px;
+            font-weight: 700;
+            color: #f5c518;
+            border-bottom: 2px solid #f5c518;
+            padding-bottom: 10px;
+        }
+
+        /* Pricing Table inside Cards */
+        .price-list {
+            list-style: none;
+            margin-top: 15px;
+            text-align: left;
+        }
+
+        .price-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 12px 15px;
+            border-bottom: 1px solid rgba(50, 50, 70, 0.5);
+        }
+
+        .price-item:last-child {
+            border-bottom: none;
+        }
+
+        .amount {
+            font-weight: 600;
+            font-size: 1.05rem;
+        }
+
+        .price {
+            color: #f5c518;
+            font-weight: 700;
+            font-size: 1.1rem;
+        }
+
+        .btn-buy-small {
+            background-color: #f5c518;
+            color: #0d0d12;
+            border: none;
+            padding: 6px 16px;
+            border-radius: 6px;
+            font-size: 0.9rem;
             font-weight: bold;
-            transition: transform 0.2s ease;
-            box-shadow: 0 4px 12px rgba(0, 136, 204, 0.4);
+            cursor: pointer;
+            transition: all 0.2s ease;
+            text-decoration: none;
         }
 
-        .btn-telegram:hover {
-            transform: translateY(-2px);
+        .btn-buy-small:hover {
+            background-color: #ffd700;
+            transform: scale(1.05);
         }
-        
+
+        /* Footer */
         footer {
             text-align: center;
             padding: 30px;
@@ -201,21 +185,67 @@
     <nav>
         <a href="index.html" class="logo">1x<span>GameStore</span></a>
         <div class="nav-links">
-            <a href="index.html">Back to Store</a>
+            <a href="index.html">Home</a>
+            <a href="index.html#store">Store</a>
         </div>
     </nav>
 
-    <section class="payment-section">
-        <h3>Complete Your Purchase</h3>
-        
-        <div class="instruction-steps">
-            <p class="step"><span>1.</span> Send payment in Birr to our official Telebirr account:</p>
-            <div class="account-number">📱 Telebirr: 0960022306</div>
+    <section class="hero" id="home">
+        <h1>Level Up Instantly.</h1>
+        <p>Premium eFootball Coins Top-Ups. Fast, secure, and verified payments in Birr.</p>
+    </section>
+
+    <!-- Products Section -->
+    <section class="store-section" id="store">
+        <h2>Select Your Package</h2>
+        <div class="game-grid">
             
-            <p class="step"><span>2.</span> Fill out your details and upload the payment screenshot below:</p>
-            
-            <form class="upload-form" action="https://formsubmit.co/dawajr733@gmail.com" method="POST" enctype="multipart/form-data">
-                
+            <!-- eFootball Coins Card -->
+            <div class="game-card">
+                <h3 class="game-title">eFootball™ Coins</h3>
+                <ul class="price-list">
+                    <li class="price-item">
+                        <span class="amount">100 Coins</span>
+                        <span class="price">240 ETB</span>
+                        <a href="checkout.html?package=100_Coins_240ETB" class="btn-buy-small">Buy</a>
+                    </li>
+                    <li class="price-item">
+                        <span class="amount">1,040 Coins</span>
+                        <span class="price">1,905 ETB</span>
+                        <a href="checkout.html?package=1040_Coins_1905ETB" class="btn-buy-small">Buy</a>
+                    </li>
+                    <li class="price-item">
+                        <span class="amount">2,130 Coins</span>
+                        <span class="price">3,755 ETB</span>
+                        <a href="checkout.html?package=2130_Coins_3755ETB" class="btn-buy-small">Buy</a>
+                    </li>
+                    <li class="price-item">
+                        <span class="amount">3,300 Coins</span>
+                        <span class="price">5,605 ETB</span>
+                        <a href="checkout.html?package=3300_Coins_5605ETB" class="btn-buy-small">Buy</a>
+                    </li>
+                    <li class="price-item">
+                        <span class="amount">5,800 Coins</span>
+                        <span class="price">9,305 ETB</span>
+                        <a href="checkout.html?package=5800_Coins_9305ETB" class="btn-buy-small">Buy</a>
+                    </li>
+                    <li class="price-item">
+                        <span class="amount">12,000 Coins</span>
+                        <span class="price">18,555 ETB</span>
+                        <a href="checkout.html?package=12000_Coins_18555ETB" class="btn-buy-small">Buy</a>
+                    </li>
+                </ul>
+            </div>
+
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2026 1x Game Store. All rights reserved.</p>
+    </footer>
+
+</body>
+</html>                
                 <input type="hidden" name="_captcha" value="false">
                 
                 <!-- Automatically displays the selected package -->
