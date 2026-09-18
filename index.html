@@ -14,7 +14,7 @@
 
         /* Black Background */
         body {
-            background-color: #050505; /* Deep Black */
+            background-color: #050505; 
             color: #ffffff;
             line-height: 1.6;
         }
@@ -26,7 +26,7 @@
             align-items: center;
             padding: 20px 5%;
             background-color: #111111;
-            border-bottom: 2px solid #FFCC00; /* Yellow Border */
+            border-bottom: 2px solid #FFCC00; 
             position: sticky;
             top: 0;
             z-index: 100;
@@ -38,21 +38,23 @@
             color: #ffffff;
             text-decoration: none;
             letter-spacing: 1px;
+            cursor: pointer;
         }
 
         .logo span {
-            color: #FFCC00; /* Yellow Text */
+            color: #FFCC00; 
         }
 
-        .nav-links a {
+        .nav-links a, .nav-links span {
             color: #cccccc;
             text-decoration: none;
             margin-left: 30px;
             font-weight: bold;
             transition: color 0.3s ease;
+            cursor: pointer;
         }
 
-        .nav-links a:hover {
+        .nav-links a:hover, .nav-links span:hover {
             color: #FFCC00;
         }
 
@@ -120,7 +122,6 @@
             padding-bottom: 10px;
         }
 
-        /* Pricing Table inside Cards */
         .price-list {
             list-style: none;
             margin-top: 15px;
@@ -161,7 +162,6 @@
             font-weight: 900;
             cursor: pointer;
             transition: all 0.2s ease;
-            text-decoration: none;
         }
 
         .btn-buy-small:hover {
@@ -169,7 +169,127 @@
             transform: scale(1.05);
         }
 
-        /* Footer */
+        /* Checkout Section (Hidden by default) */
+        #checkout-page {
+            display: none;
+        }
+
+        .payment-section {
+            padding: 60px 5%;
+            text-align: center;
+        }
+
+        .payment-section h3 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            color: #FFCC00;
+        }
+
+        .instruction-steps {
+            max-width: 650px;
+            margin: 0 auto;
+            text-align: left;
+            background-color: #0f0f0f;
+            padding: 35px;
+            border-radius: 12px;
+            border: 1px solid #333333;
+        }
+
+        .step {
+            margin-bottom: 15px;
+            font-size: 1.1rem;
+            color: #cccccc;
+        }
+
+        .step span {
+            color: #FFCC00;
+            font-weight: bold;
+            font-size: 1.2rem;
+        }
+
+        .account-number {
+            display: inline-block;
+            background-color: #FFCC00;
+            color: #000000;
+            padding: 12px 25px;
+            border-radius: 8px;
+            font-weight: 900;
+            letter-spacing: 1px;
+            margin: 10px 0 25px 0;
+            font-size: 1.5rem;
+            text-align: center;
+            width: 100%;
+        }
+
+        .upload-form {
+            background-color: #111111;
+            padding: 25px;
+            border-radius: 10px;
+            border: 1px solid #333333;
+            margin-top: 20px;
+        }
+
+        .form-label {
+            display: block;
+            margin-bottom: 8px;
+            color: #aaaaaa;
+            font-size: 0.95rem;
+            font-weight: bold;
+        }
+
+        .form-input, .form-file {
+            width: 100%;
+            padding: 14px;
+            margin-bottom: 20px;
+            border-radius: 8px;
+            border: 1px solid #444444;
+            background-color: #050505;
+            color: #FFCC00;
+            font-size: 1.1rem;
+            font-weight: bold;
+        }
+
+        .form-input:focus, .form-file:focus {
+            outline: none;
+            border-color: #FFCC00;
+        }
+
+        .btn-submit {
+            background-color: #FFCC00;
+            color: #000000;
+            padding: 15px;
+            border: none;
+            border-radius: 8px;
+            font-weight: 900;
+            font-size: 1.2rem;
+            width: 100%;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .btn-submit:hover {
+            background-color: #e6b800;
+            transform: translateY(-2px);
+        }
+
+        .support-contact {
+            margin-top: 30px;
+            text-align: center;
+            border-top: 1px solid #333333;
+            padding-top: 20px;
+        }
+
+        .btn-telegram { 
+            display: inline-block;
+            background-color: #0088cc; 
+            padding: 10px 22px;
+            border-radius: 8px;
+            color: #fff;
+            text-decoration: none;
+            font-weight: bold;
+            margin-top: 10px;
+        }
+
         footer {
             text-align: center;
             padding: 30px;
@@ -182,67 +302,145 @@
 </head>
 <body>
 
-    <nav>
-        <a href="index.html" class="logo">1x<span>GameStore</span></a>
+    <!-- Nav for Store Page -->
+    <nav id="store-nav">
+        <a class="logo" onclick="goBack()">1x<span>GameStore</span></a>
         <div class="nav-links">
-            <a href="index.html">Home</a>
-            <a href="#store">Store</a>
+            <span onclick="goBack()">Home</span>
         </div>
     </nav>
 
-    <section class="hero" id="home">
-        <h1>Level Up Instantly.</h1>
-        <p>Premium eFootball Coins Top-Ups. Fast, secure, and verified payments in Birr.</p>
-    </section>
-
-    <!-- Products Section -->
-    <section class="store-section" id="store">
-        <h2>Select Your Package</h2>
-        <div class="game-grid">
-            
-            <!-- eFootball Coins Card -->
-            <div class="game-card">
-                <h3 class="game-title">eFootball™ Coins</h3>
-                <ul class="price-list">
-                    <li class="price-item">
-                        <span class="amount">100 Coins</span>
-                        <span class="price">240 ETB</span>
-                        <a href="checkout.html?package=100_Coins_240ETB" class="btn-buy-small">Buy</a>
-                    </li>
-                    <li class="price-item">
-                        <span class="amount">1,040 Coins</span>
-                        <span class="price">1,905 ETB</span>
-                        <a href="checkout.html?package=1040_Coins_1905ETB" class="btn-buy-small">Buy</a>
-                    </li>
-                    <li class="price-item">
-                        <span class="amount">2,130 Coins</span>
-                        <span class="price">3,755 ETB</span>
-                        <a href="checkout.html?package=2130_Coins_3755ETB" class="btn-buy-small">Buy</a>
-                    </li>
-                    <li class="price-item">
-                        <span class="amount">3,300 Coins</span>
-                        <span class="price">5,605 ETB</span>
-                        <a href="checkout.html?package=3300_Coins_5605ETB" class="btn-buy-small">Buy</a>
-                    </li>
-                    <li class="price-item">
-                        <span class="amount">5,800 Coins</span>
-                        <span class="price">9,305 ETB</span>
-                        <a href="checkout.html?package=5800_Coins_9305ETB" class="btn-buy-small">Buy</a>
-                    </li>
-                    <li class="price-item">
-                        <span class="amount">12,000 Coins</span>
-                        <span class="price">18,555 ETB</span>
-                        <a href="checkout.html?package=12000_Coins_18555ETB" class="btn-buy-small">Buy</a>
-                    </li>
-                </ul>
-            </div>
-
+    <!-- Nav for Checkout Page (Hidden Initially) -->
+    <nav id="checkout-nav" style="display: none;">
+        <a class="logo" onclick="goBack()">1x<span>GameStore</span></a>
+        <div class="nav-links">
+            <span onclick="goBack()">← Back to Store</span>
         </div>
-    </section>
+    </nav>
+
+
+    <!-- ==================== MAIN STORE PAGE ==================== -->
+    <div id="store-page">
+        <section class="hero">
+            <h1>Level Up Instantly.</h1>
+            <p>Premium eFootball Coins Top-Ups. Fast, secure, and verified payments in Birr.</p>
+        </section>
+
+        <section class="store-section">
+            <h2>Select Your Package</h2>
+            <div class="game-grid">
+                
+                <div class="game-card">
+                    <h3 class="game-title">eFootball™ Coins</h3>
+                    <ul class="price-list">
+                        <li class="price-item">
+                            <span class="amount">100 Coins</span>
+                            <span class="price">240 ETB</span>
+                            <button class="btn-buy-small" onclick="openCheckout('100 Coins - 240 ETB')">Buy</button>
+                        </li>
+                        <li class="price-item">
+                            <span class="amount">1,040 Coins</span>
+                            <span class="price">1,905 ETB</span>
+                            <button class="btn-buy-small" onclick="openCheckout('1,040 Coins - 1,905 ETB')">Buy</button>
+                        </li>
+                        <li class="price-item">
+                            <span class="amount">2,130 Coins</span>
+                            <span class="price">3,755 ETB</span>
+                            <button class="btn-buy-small" onclick="openCheckout('2,130 Coins - 3,755 ETB')">Buy</button>
+                        </li>
+                        <li class="price-item">
+                            <span class="amount">3,300 Coins</span>
+                            <span class="price">5,605 ETB</span>
+                            <button class="btn-buy-small" onclick="openCheckout('3,300 Coins - 5,605 ETB')">Buy</button>
+                        </li>
+                        <li class="price-item">
+                            <span class="amount">5,800 Coins</span>
+                            <span class="price">9,305 ETB</span>
+                            <button class="btn-buy-small" onclick="openCheckout('5,800 Coins - 9,305 ETB')">Buy</button>
+                        </li>
+                        <li class="price-item">
+                            <span class="amount">12,000 Coins</span>
+                            <span class="price">18,555 ETB</span>
+                            <button class="btn-buy-small" onclick="openCheckout('12,000 Coins - 18,555 ETB')">Buy</button>
+                        </li>
+                    </ul>
+                </div>
+
+            </div>
+        </section>
+    </div>
+
+
+    <!-- ==================== CHECKOUT PAGE ==================== -->
+    <div id="checkout-page">
+        <section class="payment-section">
+            <h3>Complete Your Purchase</h3>
+            
+            <div class="instruction-steps">
+                <p class="step"><span>1.</span> Send payment in Birr to our official Telebirr account:</p>
+                <div class="account-number">📱 Telebirr: 0960022306</div>
+                
+                <p class="step"><span>2.</span> Fill out your details and upload the payment screenshot below:</p>
+                
+                <form class="upload-form" action="https://formsubmit.co/dawajr733@gmail.com" method="POST" enctype="multipart/form-data">
+                    
+                    <input type="hidden" name="_captcha" value="false">
+                    <input type="hidden" name="_next" value="https://bitly.com/"> <!-- Can change this to any success page later -->
+
+                    <label class="form-label">Selected Package:</label>
+                    <input type="text" id="packageField" name="Selected_Package" class="form-input" readonly>
+
+                    <label class="form-label">Game Name & Player ID:</label>
+                    <input type="text" name="Player_ID" class="form-input" placeholder="Example: eFootball - ID 123456789" required>
+                    
+                    <label class="form-label">Upload Payment Screenshot:</label>
+                    <input type="file" name="Screenshot" class="form-file" accept="image/*" required>
+                    
+                    <button type="submit" class="btn-submit">Submit Order</button>
+                </form>
+
+                <div class="support-contact">
+                    <p style="color: #aaaaaa;">Have a question or issue? Contact Support:</p>
+                    <a href="https://t.me/dawa_jr" class="btn-telegram">✈️ Telegram: @dawa_jr</a>
+                </div>
+            </div>
+        </section>
+    </div>
 
     <footer>
         <p>&copy; 2026 1x Game Store. All rights reserved.</p>
     </footer>
 
+    <!-- JavaScript to handle page switching without getting 404 Error -->
+    <script>
+        function openCheckout(packageName) {
+            // Hide the store page
+            document.getElementById('store-page').style.display = 'none';
+            document.getElementById('store-nav').style.display = 'none';
+            
+            // Show the checkout page
+            document.getElementById('checkout-page').style.display = 'block';
+            document.getElementById('checkout-nav').style.display = 'flex';
+            
+            // Set the package name in the form
+            document.getElementById('packageField').value = packageName;
+            
+            // Scroll to the top
+            window.scrollTo(0, 0);
+        }
+
+        function goBack() {
+            // Hide the checkout page
+            document.getElementById('checkout-page').style.display = 'none';
+            document.getElementById('checkout-nav').style.display = 'none';
+            
+            // Show the store page
+            document.getElementById('store-page').style.display = 'block';
+            document.getElementById('store-nav').style.display = 'flex';
+            
+            // Scroll to the top
+            window.scrollTo(0, 0);
+        }
+    </script>
 </body>
 </html>
